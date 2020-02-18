@@ -1,7 +1,6 @@
 package com.rjc;
 
 
-import java.util.zip.CheckedInputStream;
 
 /**
  * @program: datastructure
@@ -13,6 +12,7 @@ import java.util.zip.CheckedInputStream;
  **/
 public class MyArray {
     private static final int DEAULT_SIZE = 10;
+    private static final double GROW_SIZE=0.75;
     private Object[] array;
     private int size;
     private int capacity;
@@ -44,8 +44,27 @@ public class MyArray {
      * @param o 添加
      */
     public void add(Object o) {
+       ensureCapacity(size+1);
         array[size] = o;
         size++;
+    }
+    private void ensureCapacity(int size){
+        if(size+1>capacity*GROW_SIZE){
+           grow();
+        }
+    }
+
+    /**
+     * @see # array 数组的扩容算法
+     * @return
+     */
+    private void grow(){
+        capacity=capacity+capacity/2;
+         Object[] newArray=new Object[capacity];
+        for (int i = 0; i <array.length ; i++) {
+            newArray[i]=array[i];
+        }
+        array=newArray;
     }
 
     /**
