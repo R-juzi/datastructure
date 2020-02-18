@@ -36,7 +36,7 @@ public class MyArray {
     /**
      * @return 返回数组中元素长度
      */
-    public int getLenth() {
+    public int getSize() {
         return size;
     }
 
@@ -60,6 +60,7 @@ public class MyArray {
      */
     private void grow(){
         capacity=capacity+capacity/2;
+        System.out.println(capacity);
          Object[] newArray=new Object[capacity];
         for (int i = 0; i <array.length ; i++) {
             newArray[i]=array[i];
@@ -141,5 +142,22 @@ public class MyArray {
     public void update(Object obj,int index){
         checkIndex(index);
         array[index]=obj;
+    }
+    public int lenth(){
+        return capacity;
+    }
+
+    /**
+     * 倒序 反转这个数组
+     */
+    public void revers(){
+        for (int left = 0,right=size-1; left<right ; left++,right--) {
+            Object temp=get(left);
+            array[left]=array[right];
+            array[right]=temp;
+        }
+    }
+    public void shuffle(){
+      //TODO 随机打乱这个数组
     }
 }
