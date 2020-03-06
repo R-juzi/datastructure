@@ -1,9 +1,7 @@
 package com.rjc.entry;
 
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @program: datastructure
@@ -51,6 +49,8 @@ public class Student  implements Comparable<Student>{
 
     @Override
     public int compareTo(Student o) {
-          return this.NO-o.NO;
+        return this.NO-o.NO;
+
+
     }
 }
