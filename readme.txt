@@ -101,6 +101,7 @@ export class MyGesture_DragAndCopy extends MyGesture{
 				this.copyTar.x =this.MME.worldXY.x-this.startX;
 				this.copyTar.y =this.MME.worldXY.y-this.startY;
 				this.Tar.visible=false;
+				console.log(this.Tar)
 				LayerManager.instance.LayerTop.addChild(this.copyTar);
 				if(this.FValue!=null)	Tool_Function.onRunFunction(this.F,"开始移动",this.FValue);
 				else					Tool_Function.onRunFunction(this.F,"开始移动");
@@ -129,6 +130,7 @@ export class MyGesture_DragAndCopy extends MyGesture{
 		}
 	}
 	public  stopDrag():void{
+		
 		this.startX=0;
 		this.isDown=false;
 		var lastPause:boolean=this.pause;
